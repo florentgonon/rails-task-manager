@@ -1,0 +1,18 @@
+<h1><%= @task.title %></h1>
+<%#= link_to "Edit this task", tasks_path, task_path(@task.id)%>
+
+<div class="task-details">
+  <%= @task.details %>
+</div>
+
+<%= check_box("post", true) %>
+<% if @task.completed == false %>
+  <%= "🧀 This task isn't completed" %>
+<% else %>
+  <%= "✅ This task is completed" %>
+<% end %>
+<br>
+<br>
+<%= link_to "Back to the list", tasks_path %>
+<%= link_to "Edit this task", task_edit_path(@task.id) %>
+<%= link_to "Delete this task", task_destroy_path(@task.id), method: :delete %>
